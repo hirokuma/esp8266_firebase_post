@@ -246,7 +246,7 @@ static void ICACHE_FLASH_ATTR tcp_connected(void *pArg)
             "POST " POST_PARAM " HTTP/1.1\r\n"
             "Host: " HOST_URL "\r\n"
             "Accept: */*\r\n"
-            "Content-Type: application/json\r\n"
+            "Content-Type: application/json; charset=utf-8\r\n"
             "Content-Length: %d\r\n"
             "\r\n"
             "%s", os_strlen(mBody), mBody);
@@ -285,5 +285,5 @@ static void ICACHE_FLASH_ATTR data_received(void *pArg, char *pData, unsigned sh
     DBG_PRINTF(pData);
     DBG_PRINTF("\n----------\n");
 
-    espconn_secure_disconnect(pConn);           //SSL
+    //espconn_secure_disconnect(pConn);           //SSL
 }
